@@ -75,7 +75,6 @@ i {
     align-items: center;
     height: 35.6875rem;
     overflow-y: auto;
-    /* Add vertical scroll if content overflows */
 }
 
 .placeholder-icon {
@@ -96,9 +95,9 @@ h3 {
 
 .movieCard {
     width: 28.8125rem;
-    height: 18.75rem;
+    height: 10rem;
     padding-top: 1rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     display: flex;
 }
 
@@ -115,13 +114,25 @@ h3 {
     align-items: center;
 }
 
-.watchlist-btn{
+.watchlist-btn,
+.remove-btn{
     font-family: inherit;
     border: none;
     cursor: pointer;
     padding: 0.3em 1em;
     border-radius: 4px;
-    background: limegreen;
+    background-color: limegreen;
+    font-weight: 500;
+}
+
+.remove-btn{
+    background-color: red;
+}
+
+button.watchlist-btn[disabled] {
+    background-color: #999999;
+    color: #ffffff;
+    cursor: not-allowed;
 }
 
 
@@ -176,7 +187,6 @@ h3 {
     font-size: 1.125rem;
     font-weight: 500;
     line-height: 111.111% ;
-    /* 111.111% */
 }
 
 span{

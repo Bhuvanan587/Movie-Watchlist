@@ -37,8 +37,18 @@ searchBtn.addEventListener('click', () => {
 
                 watchlistBtn.addEventListener('click', () => {
                     const watchlist = JSON.parse(storage.getItem('watchlist')) || [];
-                    watchlist.unshift(movieObj);
-                    storage.setItem('watchlist', JSON.stringify(watchlist));
+                    
+                    // Check if the movie is already in the watchlist
+                    const isAlreadyAdded = watchlist.some(item => item.imdbID === movieObj.imdbID);
+                    
+                    if (!isAlreadyAdded) {
+                        watchlist.unshift(movieObj);
+                        storage.setItem('watchlist', JSON.stringify(watchlist));
+                        
+                        // Disable the button and change its text
+                        watchlistBtn.disabled = true;
+                        watchlistBtn.textContent = 'Added';
+                    }
                 });
 
             });
